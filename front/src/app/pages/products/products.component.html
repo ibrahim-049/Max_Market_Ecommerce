@@ -1,0 +1,33 @@
+<ul *ngIf="isLoaded">
+    <li *ngFor="let product of products">
+        <div>
+            {{product.title}}
+        </div>
+        <div>
+            <img *ngIf="product.image" src="http://localhost:5000/image/{{product.image}}">
+        </div>
+        <div>
+            {{product.description}}
+        </div>
+        <div>
+            {{product.attributes[0].attrName}}:
+            {{product.attributes[0].values[0].value}}
+
+        </div>
+            
+        <div>
+            Quantity:{{product.attributes[0].values[0].quantity}}
+        </div>
+        <div>
+            Price:{{product.attributes[0].values[0].price}}
+        </div>
+        
+        <div>
+            <button class="btn btn-primary my-5" routerLink="/product/{{product._id}}">show product</button>
+        </div>
+        <div>
+            <button class="btn btn-primary my-5" routerLink="/product/{{product._id}}">Add to cart</button>
+        </div>
+    </li>
+   
+</ul>

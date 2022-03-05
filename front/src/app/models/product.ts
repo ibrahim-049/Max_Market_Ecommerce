@@ -1,0 +1,20 @@
+export interface Product {
+    _id:string,
+    title:string,
+    description:string,
+    categories:[string],
+    attributes:[
+        {
+            attrName:string,
+            values:[
+                {
+                    value:string,
+                    quantity:string,
+                    price:string
+                }
+            ]
+        }
+    ],
+    image:string,
+    userId:string
+}
