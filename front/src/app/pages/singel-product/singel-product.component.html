@@ -1,1 +1,43 @@
-<p>singel-product works!</p>
+<ul *ngIf="isLoaded">
+    <li>
+        <div>
+            {{product.title}}
+        </div>
+        <div>
+            <img *ngIf="product.image" src="http://localhost:5000/image/{{product.image}}">
+        </div>
+        <div>
+            {{product.description}}
+        </div>
+        <div *ngFor="let attribute of product.attributes">
+            
+            <div *ngFor="let value of attribute.values">
+
+                {{attribute.attrName}}:{{value.value}}
+                <div>
+                    Quantity:{{value.quantity}}
+                </div>
+                <div>
+                    Price:{{value.price}} <br><br>
+                </div>
+                
+            </div>
+        </div>
+
+        <form #makeProduct="ngForm" (ngSubmit)="myForm">
+            <div *ngFor="let attribute of product.attributes">
+                <div class="mb-3">
+                    <input class="form-control" placeholder="Enter your {{attribute.attrName}}"  name="attrName" ngModel>
+                </div>
+            </div>
+            
+            <div class="mb-3">
+                <button class="btn btn-primary">Add to Cart</button>
+            </div>
+        </form>
+            
+        
+        
+    </li>
+   
+</ul>

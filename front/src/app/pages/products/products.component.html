@@ -9,25 +9,19 @@
         <div>
             {{product.description}}
         </div>
-        <div>
-            {{product.attributes[0].attrName}}:
-            {{product.attributes[0].values[0].value}}
-
-        </div>
+        
             
-        <div>
-            Quantity:{{product.attributes[0].values[0].quantity}}
-        </div>
+        
         <div>
             Price:{{product.attributes[0].values[0].price}}
         </div>
         
         <div>
-            <button class="btn btn-primary my-5" routerLink="/product/{{product._id}}">show product</button>
+            <button class="btn btn-primary my-2" routerLink="/product/{{product._id}}">show product</button>
         </div>
         <div>
-            <button class="btn btn-primary my-5" routerLink="/product/{{product._id}}">Add to cart</button>
-        </div>
+            <button class="btn btn-primary my-2" routerLink="/product/{{product._id}}">Add to cart</button>
+        </div><br><br>
     </li>
    
 </ul>

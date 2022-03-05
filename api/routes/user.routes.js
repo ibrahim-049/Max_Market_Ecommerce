@@ -20,7 +20,7 @@ router.get('/show/myProfile', userAuth , userController.myProfile)
 
 
 router.post('/addToCart/:pId', userAuth, cartController.addToCart)
-router.post('/delete/:pId', userAuth, cartController.deleteProduct)
+router.get('/delete/:pId', userAuth, cartController.deleteProduct)
 
 
 

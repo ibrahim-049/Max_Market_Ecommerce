@@ -31,4 +31,7 @@ export class AuthService {
   logout():Observable<any>{
     return this._http.get('http://localhost:5000/api/user/logout')
   }
+  addToCart(id:any, product:any):Observable<any>{
+    return this._http.post(`http://localhost:5000/api/user/addToCart/${id}`, product)
+  }
 }
