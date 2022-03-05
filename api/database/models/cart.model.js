@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 const cartSchema = mongoose.Schema({
-    userId: {type:mongoose.SchemaTypes.ObjectId, required:true},
+    userId: {type:mongoose.SchemaTypes.ObjectId, required:true, unique:true},
     products:[
         {
             productId:{type:mongoose.SchemaTypes.ObjectId, required:true},

@@ -9,6 +9,7 @@ import { AuthService } from 'src/app/providers/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
+  isLoaded:boolean= false
   constructor(public _auth:AuthService, private _router:Router) {
     this._auth.myProfile().subscribe(
       (data)=>{
@@ -18,10 +19,12 @@ export class NavbarComponent implements OnInit {
       (err)=>{
         this._auth.isLogin = false
         this._auth.user = null
-        console.log(err)
+        this.isLoaded = true
+        
       },
       ()=>{
         this._router.navigateByUrl('/')
+        this.isLoaded = true
       }
     )
   }
@@ -42,6 +45,7 @@ export class NavbarComponent implements OnInit {
         this._auth.user = null
         localStorage.removeItem('userToken')
         this._router.navigateByUrl("/login")
+        
       }
     )
   }

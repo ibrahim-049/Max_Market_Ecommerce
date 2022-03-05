@@ -4,6 +4,7 @@ const userAuth = require('../middleware/user.auth')
 const adminAuth = require('../middleware/admin.auth')
 const upload = require('../middleware/fileUpload')
 const adminController = require('../app/controller/admin.controller')
+const cartController = require('../app/controller/cart.controller')
 
 router.post('/register', userController.register)
 router.post('/admin/register', adminController.register)
@@ -16,6 +17,10 @@ router.get('/logout', userAuth , userController.logout)
 router.post('/editProfile', userAuth , userController.editProfile)
 router.post('/editProfileImage', userAuth, upload.single('ProfileImage'), userController.editProfileImage),
 router.get('/show/myProfile', userAuth , userController.myProfile)
+
+
+router.post('/addToCart/:pId', userAuth, cartController.addToCart)
+router.post('/delete/:pId', userAuth, cartController.deleteProduct)
 
 
 
